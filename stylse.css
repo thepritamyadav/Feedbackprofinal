@@ -1,0 +1,1126 @@
+:root {
+    --primary: #4361EE; /* Main brand blue */
+    --secondary: #FF5C8D; /* Accent pink */
+    --accent: #7209B7; /* Accent purple */
+    --success: #06D6A0; /* Green for success/buttons */
+    --success-darker: #05b483; /* Darker green for hover */
+    --dark: #2B2D42; /* Dark text color */
+    --light: #F8F9FA; /* Light background */
+    --highlight-bg: #fff8ab; /* Lighter yellow for highlight bg */
+    --highlight-stroke: #FFD60A; /* Yellow for highlight stroke */
+    --honest-blue: #3a86ff; /* Blue used for honesty/transparency badges */
+    --warning: #ff9f1c; /* Orange for warning/badges */
+    --border-light: #e9ecef; /* Light border color */
+    --text-muted: #6c757d; /* Muted text color */
+    --texture-color: rgba(0, 0, 0, 0.03); /* Color for texture overlay */
+}
+
+/* Basic reset and font setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /* Modern system font stack */
+}
+
+html {
+     scroll-behavior: smooth; /* Smooth scrolling for any potential anchor links */
+}
+
+body {
+    background-color: var(--light); /* Light page background */
+    color: var(--dark); /* Default text color */
+    line-height: 1.6; /* Improve readability */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    /* Add subtle texture to the whole page */
+    background-image: linear-gradient(var(--texture-color) 1px, transparent 1px), linear-gradient(to right, var(--texture-color) 1px, var(--light) 1px);
+    background-size: 10px 10px; /* Size of the texture grid */
+}
+
+/* Main container */
+.container {
+    max-width: 1000px; /* Limit content width */
+    margin: 0 auto; /* Center the container */
+    padding: 15px; /* Padding on smaller screens */
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 20px 0 15px; /* Adjusted padding */
+    position: relative; /* For positioning the badge */
+    border-bottom: 1px solid var(--border-light); /* Subtle separator line */
+    margin-bottom: 20px; /* Space below header */
+    background-color: var(--light); /* Ensure header bg matches body */
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between emoji and text */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    cursor: default; /* Indicate it's not a link (unless it becomes one) */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.logo-badge {
+    position: absolute;
+    top: 15px; /* Adjusted position */
+    right: 20px;
+    background-color: var(--warning);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px; /* Rounded badge */
+    transform: rotate(10deg); /* Adjusted rotation */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    z-index: 10; /* Ensure visibility */
+}
+
+/* --- Hero Section Revamp --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 80px; /* Increased vertical padding */
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07); /* Soft shadow */
+    margin-bottom: 40px; /* Space below hero */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero.visible {
+     opacity: 1;
+     transform: translateY(0);
+}
+
+/* Raw/Authentic Background Texture using pseudo-element */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Subtle noise texture */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PGZpbHRlciBpZD0iZjEiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC4xIiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIiB0eXBlPSJmcmFjdGFsTm9pc2UiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZjEpIiBvcGFjaXR5PSIwLjAzIi8+PC9zdmc+');
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero > * { /* Ensure content is above the texture */
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 44px; /* Larger */
+    font-weight: 700; /* Even Bolder */
+    margin-bottom: 25px; /* More space */
+    max-width: 750px;
+    line-height: 1.3; /* Adjusted */
+    color: #1c1e3e; /* Darker, slightly desaturated blue */
+    text-shadow: none; /* Remove previous shadow for cleaner look */
+}
+/* Style for the second line of H1 if needed */
+/* h1 span.line-break { display: block; margin-top: 5px; } */
+
+.subheading {
+    font-size: 20px;
+    margin-bottom: 40px; /* More space below */
+    max-width: 600px; /* Slightly narrower */
+    color: var(--text-muted); /* Muted text */
+    font-weight: 400; /* Regular weight */
+    text-shadow: none;
+}
+
+/* Highlighted text style - more like a marker */
+.highlight {
+    background-color: var(--highlight-bg); /* Lighter background */
+    padding: 2px 6px; /* Adjust padding */
+    margin: -2px -6px; /* Offset padding */
+    border-radius: 4px; /* Slightly rounded */
+    box-shadow: inset 0 -2px 0 var(--highlight-stroke); /* Bottom "stroke" */
+    font-weight: inherit; /* Inherit weight from h1/h3 */
+    /* Remove background image */
+    background-image: none;
+    display: inline; /* Ensure it behaves like text */
+    line-height: inherit;
+}
+
+/* Scroll Down Cue */
+.scroll-down {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeInScroll 1s ease-out 1.5s forwards, bounceScroll 2s infinite 2.5s; /* Fade in then bounce */
+    cursor: pointer; /* Indicate it's clickable */
+    z-index: 5;
+}
+
+.scroll-down span {
+    margin-bottom: 5px;
+}
+
+.scroll-down svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@keyframes fadeInScroll {
+    to { opacity: 0.7; }
+}
+
+@keyframes bounceScroll {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+/* --- End Hero Section Revamp --- */
+
+
+/* Main content grid (Benefits + Form) */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Two columns, form slightly wider */
+    gap: 35px; /* Increased gap */
+    margin-bottom: 50px; /* Increased margin */
+    align-items: start; /* Align items to the top */
+}
+
+/* Benefits Section (Left Column) */
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased space */
+}
+
+.benefit {
+    padding: 25px; /* Increased padding */
+    background: white; /* White card background */
+    border-radius: 16px; /* More rounded */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* Softer shadow */
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    gap: 20px; /* Increased space */
+    transition: all 0.3s ease-out; /* Smoother transition */
+    border-left: 5px solid transparent; /* Adjusted border */
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateX(-20px); /* Start slightly left for animation */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease-out, border-left 0.3s ease-out;
+}
+
+.benefit.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.benefit:hover {
+    transform: translateY(-6px) scale(1.02); /* Lift and slightly scale card on hover */
+    box-shadow: 0 14px 25px rgba(0,0,0,0.09); /* Increased shadow on hover */
+    border-left: 5px solid var(--primary); /* Add accent border on hover */
+}
+
+.benefit-icon {
+    font-size: 34px; /* Slightly larger */
+    color: var(--primary);
+    background-color: rgba(67, 97, 238, 0.1); /* Light blue background */
+    height: 65px; /* Slightly larger */
+    width: 65px;
+    border-radius: 50%; /* Circular icon background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.15); /* Adjusted shadow */
+}
+
+.benefit-content h3 {
+    margin-bottom: 8px;
+    font-size: 20px; /* Slightly larger */
+    font-weight: 600;
+}
+
+.benefit-content p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Form Section Revamp --- */
+.form-section {
+    background-color: white;
+    padding: 40px; /* Increased padding */
+    border-radius: 20px; /* More rounded */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* Adjusted shadow */
+    position: relative; /* For badges and pseudo-element */
+    border: 1px solid var(--border-light); /* Softer initial border */
+    transition: all 0.3s ease-out;
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateX(20px); /* Start slightly right for animation */
+    transition: opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s, box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Added delay */
+}
+
+.form-section.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.form-section:hover {
+    transform: translateY(-6px); /* Lift more on hover */
+    border-color: rgba(67, 97, 238, 0.3); /* Subtle border highlight on hover */
+    box-shadow: 0 22px 45px rgba(0,0,0,0.13); /* Increase shadow on hover */
+}
+
+/* Top highlight bar - removed for cleaner look, badge takes priority */
+.form-section:before {
+     content: none;
+}
+
+/* Revamped Form Title */
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 35px; /* More space below title */
+    font-size: 26px; /* Adjusted size */
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Revamped Startup Badge - Pinned Note Style */
+.startup-badge {
+    position: absolute;
+    top: -15px; /* Position overlapping */
+    left: 25px; /* Positioned left */
+    background-color: #fffbe0; /* Creamy yellow */
+    color: #5c4b00; /* Dark yellow text */
+    font-size: 14px;
+    font-weight: 600; /* Bolder */
+    padding: 10px 18px; /* More padding */
+    border-radius: 5px 5px 15px 5px; /* Note shape */
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.15); /* Realistic shadow */
+    z-index: 2; /* Ensure badge is above */
+    transform: rotate(-4deg); /* Slight rotation */
+    border: 1px solid #f5e8a0; /* Subtle border */
+    font-family: 'Segoe UI', /* Optional: Use a slightly different font */ sans-serif;
+}
+.startup-badge::before { /* Pin element */
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #d1d1d1; /* Grey pin head */
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+
+.form-group {
+    margin-bottom: 22px; /* Increased space */
+    position: relative; /* For positioning icon */
+}
+
+.form-icon {
+    position: absolute;
+    left: 15px; /* Adjusted position */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Precise vertical centering */
+    color: #aaa; /* Slightly darker */
+    font-size: 18px; /* Icon size */
+    pointer-events: none; /* Allow clicking through the icon */
+    z-index: 1;
+    transition: color 0.2s ease-in-out;
+}
+/* Change icon color on focus */
+input:focus + .form-icon, select:focus + .form-icon {
+    color: var(--primary);
+}
+
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500; /* Medium weight */
+    font-size: 15px;
+    color: #333; /* Slightly darker label */
+}
+
+input, select {
+    width: 100%;
+    padding: 16px 16px 16px 48px; /* Increased padding */
+    border: 1px solid #ccc; /* Slightly darker border */
+    border-radius: 8px; /* Less rounded inputs */
+    font-size: 16px;
+    transition: all 0.2s ease-in-out; /* Faster focus transition */
+    background-color: #fff; /* Ensure white background */
+}
+
+/* Style for select dropdown arrow */
+select {
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2210%22 height%3D%2210%22 fill%3D%22%23555%22 viewBox%3D%220 0 1792 1792%22%3E%3Cpath d%3D%22M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z%22%2F%3E%3C%2Fsvg%3E'); /* Simpler SVG arrow */
+    background-repeat: no-repeat;
+    background-position: right 18px top 50%; /* Adjusted position */
+    background-size: 10px auto;
+    padding-right: 45px; /* Ensure space for custom arrow */
+}
+
+input:focus, select:focus {
+    border-color: var(--primary); /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15); /* Adjusted glow effect */
+    background-color: #fcfdff; /* Very subtle background change on focus */
+}
+
+/* Style placeholders */
+input::placeholder {
+    color: #bbb; /* Lighter placeholder */
+    opacity: 1;
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+    background-image: linear-gradient(to right, var(--success) 0%, #05cfb7 100%); /* Subtle gradient */
+    color: white;
+    border: none;
+    padding: 18px 30px; /* Increased padding */
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px; /* Add letter spacing */
+    border-radius: 8px; /* Match input radius */
+    cursor: pointer;
+    width: 100%;
+    margin-top: 25px; /* More space above button */
+    transition: all 0.3s ease-out; /* Smoother transition */
+    position: relative; /* For pseudo-element shine effect */
+    overflow: hidden; /* Contain shine effect */
+    box-shadow: 0 6px 15px rgba(6, 214, 160, 0.3); /* Adjusted shadow */
+}
+
+/* Shine effect - kept simple */
+button[type="submit"]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start further left */
+    width: 75%; /* Wider shine */
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%); /* Softer shine */
+    transform: skewX(-25deg); /* Less skew */
+    transition: left 0.6s ease-out; /* Animate left property */
+}
+
+button[type="submit"]:hover:before {
+     left: 125%; /* Move shine across on hover */
+}
+
+button[type="submit"]:hover {
+    background-image: linear-gradient(to right, var(--success-darker) 0%, #06D6A0 100%); /* Shift gradient on hover */
+    transform: translateY(-4px); /* Lift button more */
+    box-shadow: 0 10px 20px rgba(6, 214, 160, 0.4); /* Increased shadow */
+}
+ button[type="submit"]:active {
+     transform: translateY(-1px); /* Press down effect */
+     box-shadow: 0 5px 10px rgba(6, 214, 160, 0.3);
+ }
+
+
+.test-emoji { /* Emoji inside button */
+    margin-right: 8px; /* More space */
+    font-size: 20px;
+    vertical-align: middle; /* Align emoji better with text */
+    display: inline-block; /* Ensure proper alignment */
+}
+
+/* Trust indicators below form */
+.trust-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Increased space */
+    margin-top: 30px; /* More space above */
+    font-size: 14px;
+    color: var(--text-muted); /* Muted color */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.trust-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Space between icon and text */
+}
+ .trust-indicator span { /* Icon */
+     opacity: 0.8;
+     font-size: 16px; /* Slightly larger icons */
+ }
+/* --- End Form Section Revamp --- */
+
+
+/* Early Adopter / Transparency Section */
+.early-adopter {
+    background-color: #f5f7ff; /* Very light blue background */
+    padding: 35px; /* Increased padding */
+    border-radius: 16px;
+    margin: 50px 0; /* Increased margin */
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06); /* Adjusted shadow */
+    border: 1px solid #e0e7ff; /* Subtle border */
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+ .early-adopter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.honesty-badge { /* Reusable badge style */
+    display: inline-block;
+    background-color: var(--honest-blue);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 14px; /* Adjusted padding */
+    border-radius: 20px; /* Pill shape */
+    margin-bottom: 20px; /* Increased space */
+}
+
+.early-adopter-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.early-adopter-content {
+    max-width: 700px; /* Control text width */
+    margin: 0 auto;
+    font-size: 16px;
+    color: #444; /* Slightly darker grey */
+    line-height: 1.7; /* Increased line height */
+}
+ .early-adopter-content p {
+     margin-bottom: 15px; /* Space between paragraphs */
+ }
+
+.first-badge { /* Specific badge for the waitlist count */
+    display: inline-block;
+    background-color: var(--warning);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 5px 5px 5px 0; /* Adjusted margin */
+    box-shadow: 0 4px 8px rgba(255, 159, 28, 0.2);
+    min-width: 150px; /* Ensure enough width for counter */
+    vertical-align: middle; /* Align better with text */
+}
+
+/* How It Works Section */
+.how-it-works {
+    margin: 60px 0; /* Increased margin */
+    text-align: center;
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.how-it-works.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: 40px; /* Increased space */
+    font-size: 28px; /* Larger title */
+    font-weight: 600;
+}
+
+.step-cards {
+    display: flex;
+    justify-content: space-between; /* Distribute cards evenly */
+    gap: 25px; /* Increased space */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.step-card {
+    background-color: white;
+    padding: 30px 25px; /* Adjusted padding */
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* Adjusted shadow */
+    text-align: center;
+    flex: 1; /* Allow cards to grow */
+    min-width: 210px; /* Minimum width before wrapping */
+    position: relative; /* For step number */
+    transition: all 0.3s ease-out; /* Smoother transition */
+    border-top: 4px solid transparent; /* Adjusted border */
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease-out, border-top 0.3s ease-out;
+    /* Stagger animation using JS */
+}
+
+.step-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step-card:hover {
+    transform: translateY(-6px) scale(1.02); /* Lift more and scale slightly */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Increase shadow */
+    border-top: 4px solid var(--primary); /* Add top border */
+}
+
+.step-number {
+    position: absolute;
+    top: -18px; /* Adjusted position */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Precise centering */
+   /* Remove left positioning */
+    background-color: var(--primary);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%; /* Circular number badge */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3); /* Badge shadow */
+    border: 2px solid white; /* Add white border */
+}
+
+.step-icon {
+    font-size: 38px; /* Slightly larger icon */
+    margin-bottom: 18px; /* Increased space */
+    color: var(--primary); /* Color the icon */
+}
+
+.step-title {
+    font-weight: 600; /* Bolder title */
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: var(--dark);
+}
+
+.step-description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6; /* Improved line height */
+}
+
+/* Money Section - Placeholder, as real data isn't available yet */
+.money-section {
+    background-color: #FFF5E4; /* Light orange background */
+    padding: 40px 30px; /* Increased padding */
+    border-radius: 16px;
+    margin: 60px 0; /* Increased margin */
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(255, 159, 28, 0.1);
+    border: 1px solid #ffeacc; /* Subtle border */
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+ .money-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.money-title {
+    font-size: 28px; /* Larger title */
+    margin-bottom: 30px; /* Increased space */
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.money-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Increased gap */
+    flex-wrap: wrap;
+    margin-bottom: 30px; /* Increased space */
+}
+
+.money-card {
+    background-color: white;
+    padding: 25px; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.07);
+    text-align: center;
+    width: 160px; /* Slightly wider */
+    transition: all 0.3s ease-out;
+    border-bottom: 4px solid transparent; /* Placeholder for hover */
+}
+
+.money-card:hover {
+    transform: translateY(-5px) scale(1.03); /* Lift and scale */
+    border-bottom: 4px solid var(--primary); /* Add bottom border */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+.money-amount {
+    font-size: 24px; /* Larger amount */
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 10px; /* Increased space */
+}
+
+.money-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.money-note {
+    margin-top: 25px; /* Increased space */
+    font-size: 15px;
+    color: #444;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Increased padding */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly more opaque */
+    border-radius: 10px;
+    border-left: 4px solid var(--honest-blue); /* Accent border */
+    line-height: 1.7;
+}
+
+
+/* Share Section */
+.share-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); /* Use variables */
+    padding: 40px 30px; /* Increased padding */
+    border-radius: 16px;
+    margin: 60px 0; /* Increased margin */
+    text-align: center;
+    color: white; /* White text on gradient */
+    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.25); /* Adjusted shadow */
+    opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.share-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.share-title {
+    font-size: 28px; /* Larger title */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.share-description {
+    font-size: 17px; /* Slightly larger */
+    margin-bottom: 30px; /* Increased space */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9; /* Slightly transparent text */
+    line-height: 1.7;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px; /* Increased gap */
+    flex-wrap: wrap;
+}
+
+.share-button {
+    background-color: white;
+    color: var(--primary); /* Button text color */
+    border: none;
+    padding: 14px 25px; /* Increased padding */
+    border-radius: 30px; /* Pill shape */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap */
+    font-weight: 600; /* Bolder */
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.share-button:hover {
+    transform: translateY(-4px) scale(1.03); /* Lift more and scale */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Increase shadow */
+    background-color: #f8f9fa; /* Slight background change */
+    color: var(--accent); /* Change text color */
+}
+
+.share-emoji {
+    font-size: 20px;
+}
+
+.share-incentive {
+    margin-top: 25px; /* Increased space */
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgba(255,255,255,0.15); /* Adjusted opacity */
+    padding: 12px 22px; /* Increased padding */
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* FAQ Section */
+.faq {
+    margin: 60px 0; /* Increased margin */
+     opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.faq.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 40px; /* Increased space */
+    font-size: 28px; /* Larger title */
+    font-weight: 600;
+}
+
+.faq-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for FAQ */
+    gap: 25px; /* Increased gap */
+}
+
+.faq-item {
+    padding: 25px; /* Increased padding */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-out;
+    border-left: 4px solid transparent; /* Adjusted border */
+}
+
+.faq-item:hover {
+    transform: translateY(-4px) scale(1.01); /* Lift and scale slightly */
+    border-left: 4px solid var(--primary); /* Add accent border */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+}
+
+.faq-question {
+    font-weight: 600; /* Bolder */
+    font-size: 18px; /* Slightly larger */
+    margin-bottom: 12px; /* Increased space */
+    color: var(--primary); /* Question color */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: default; /* Indicate not clickable (unless made interactive) */
+}
+
+.faq-question span { /* The actual question text */
+    color: var(--dark); /* Reset color for text */
+}
+
+.faq-answer {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6; /* Improved line height */
+}
+
+/* About Us Section */
+.about-us {
+    background-color: #f5f7ff; /* Match early adopter background */
+    padding: 40px 30px; /* Increased padding */
+    border-radius: 16px;
+    margin: 60px 0; /* Increased margin */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06); /* Adjusted shadow */
+    border: 1px solid #e0e7ff; /* Subtle border */
+     opacity: 0; /* Initially hidden for JS animation */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.about-us.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-us h2 {
+    text-align: center;
+    margin-bottom: 25px; /* Increased space */
+    font-size: 28px; /* Larger title */
+    font-weight: 600;
+}
+
+.about-us p {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    max-width: 750px;
+    margin: 0 auto 20px; /* Increased space */
+    line-height: 1.7; /* Improved line height */
+}
+
+.founders-note {
+    background-color: white;
+    padding: 25px; /* Increased padding */
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 30px auto 0; /* Increased space */
+    font-style: italic;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7; /* Improved line height */
+    position: relative; /* For quote pseudo-element */
+    border-left: 4px solid var(--honest-blue); /* Accent border */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Add subtle shadow */
+}
+
+/* Decorative quote mark */
+.founders-note:before {
+    content: '"'; /* Double quote */
+    position: absolute;
+    top: 10px; /* Adjusted position */
+    left: 15px;
+    font-size: 60px;
+    font-family: Georgia, serif; /* Serif font for quote */
+    color: var(--honest-blue);
+    opacity: 0.15; /* Adjusted opacity */
+    line-height: 1;
+    z-index: 0; /* Behind text */
+}
+ .founders-note p { /* Ensure text is above quote */
+     position: relative;
+     z-index: 1;
+     text-align: left; /* Reset text align */
+     max-width: none; /* Reset max width */
+     margin-bottom: 0; /* Reset margin */
+ }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0 30px; /* Increased padding */
+    color: #666;
+    font-size: 14px;
+    margin-top: 40px; /* Increased margin */
+    border-top: 1px solid var(--border-light); /* Separator line */
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Increased gap */
+    margin-top: 15px; /* Increased space */
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+    font-weight: 500; /* Slightly bolder */
+}
+
+.footer-link:hover {
+    color: var(--accent); /* Change color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Animation for the main button */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 6px 15px rgba(6, 214, 160, 0.3); }
+    50% { transform: scale(1.03); box-shadow: 0 10px 20px rgba(6, 214, 160, 0.4); } /* Pulse shadow too */
+    100% { transform: scale(1); box-shadow: 0 6px 15px rgba(6, 214, 160, 0.3); }
+}
+
+.pulse {
+    /* Keep pulse but ensure hover state overrides scale if needed */
+    animation: pulse 2.5s infinite ease-in-out;
+}
+button[type="submit"]:hover {
+    animation-play-state: paused; /* Pause pulse on hover */
+}
+
+
+/* Responsive Design */
+@media (max-width: 900px) { /* Adjust breakpoint */
+     .main-grid {
+        grid-template-columns: 1fr; /* Stack columns */
+     }
+     .form-section {
+         margin-top: 40px; /* Add space when stacked */
+     }
+     .faq-items {
+        grid-template-columns: 1fr; /* Stack FAQ items */
+     }
+}
+
+@media (max-width: 768px) {
+     h1 {
+         font-size: 36px; /* Adjust heading size */
+     }
+    .subheading {
+        font-size: 18px; /* Smaller subheading */
+    }
+
+     .step-cards {
+         flex-direction: column; /* Stack step cards */
+         align-items: center; /* Center stacked cards */
+         gap: 30px; /* Increase gap when stacked */
+     }
+     .step-card {
+         width: 90%; /* Make cards wider when stacked */
+         max-width: 400px;
+     }
+     .step-number { /* Adjust number position when stacked */
+         top: -18px;
+         left: 50%;
+         transform: translateX(-50%);
+     }
+
+
+    .money-cards {
+        gap: 20px; /* Adjust gap */
+    }
+
+    .money-card {
+        width: clamp(150px, 45%, 200px); /* Responsive width */
+        max-width: none;
+    }
+
+    .startup-badge {
+        /* Adjust badge position/size */
+        left: 15px;
+        padding: 8px 15px;
+        font-size: 13px;
+        transform: rotate(-3deg);
+    }
+
+    .form-section {
+        padding: 35px 25px; /* Adjust padding */
+    }
+     .form-section h2 {
+         font-size: 24px; /* Adjust form title size */
+     }
+
+    .logo-badge {
+        /* Adjust badge position on smaller screens */
+        top: 15px;
+        right: 15px;
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+     .footer-links {
+         gap: 15px; /* Reduce gap */
+     }
+}
+ @media (max-width: 480px) {
+     .logo {
+         font-size: 28px; /* Smaller logo */
+     }
+     h1 {
+         font-size: 30px; /* Smaller heading */
+         line-height: 1.35;
+     }
+     .subheading {
+         font-size: 17px; /* Adjust size */
+     }
+     .hero {
+         padding: 40px 15px 70px; /* Adjust padding */
+     }
+     .scroll-down {
+         bottom: 15px; /* Adjust scroll cue position */
+         font-size: 12px;
+     }
+     .scroll-down svg {
+         width: 18px; height: 18px;
+     }
+
+     .benefit {
+         flex-direction: column; /* Stack icon and text */
+         text-align: center;
+         padding: 20px 15px; /* Adjust padding */
+         gap: 10px;
+     }
+     .benefit-icon {
+         margin-bottom: 10px; /* Add space below icon */
+         width: 55px; /* Adjust size */
+         height: 55px;
+         font-size: 30px;
+     }
+     .benefit-content h3 {
+         font-size: 18px;
+     }
+
+     .form-section h2 {
+         font-size: 22px;
+     }
+      .startup-badge {
+         padding: 6px 12px;
+         font-size: 12px;
+         top: -12px;
+         left: 15px;
+     }
+     .startup-badge::before { /* Adjust pin */
+         width: 8px; height: 8px; top: -4px;
+     }
+
+     button[type="submit"] {
+         font-size: 16px;
+         padding: 16px 20px; /* Adjust padding */
+     }
+     .money-card {
+         width: 85%; /* Stack money cards */
+     }
+     .share-button {
+         font-size: 14px;
+         padding: 12px 20px; /* Adjust padding */
+     }
+     .faq-items {
+         gap: 20px; /* Adjust gap */
+     }
+     .faq-item {
+         padding: 20px; /* Adjust padding */
+     }
+     .faq-question {
+         font-size: 17px; /* Adjust size */
+     }
+     .faq-answer {
+         font-size: 14px;
+     }
+     .about-us h2, .how-it-works h2, .money-title, .share-title, .faq h2 {
+         font-size: 24px; /* Consistent section titles */
+     }
+ }
+

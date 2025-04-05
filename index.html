@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FeedbackPro - Authentic Product Feedback for Real Income</title>
+    <!-- Update Supabase client library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="stylse.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo"><span>💬</span> FeedbackPro</div>
+        <div class="logo-badge">Just Launched!</div>
+      </header>
+
+      <section class="hero animate-on-scroll">
+        <h1>
+          Share Your Honest Opinion.
+          <span class="line-break"
+            >Earn <span class="highlight">₹2000-₹3000</span> Monthly.</span
+          >
+        </h1>
+        <p class="subheading">
+          Help companies improve their products with your real feedback. Spend
+          10-15 mins/day, get paid. Simple as that.
+        </p>
+        <a
+          href="#signup-form-section"
+          class="scroll-down"
+          aria-label="Scroll down to sign up form"
+        >
+          <span>Join Below</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"
+            ></path>
+          </svg>
+        </a>
+      </section>
+
+      <div class="main-grid">
+        <section class="benefits">
+          <div class="benefit animate-on-scroll">
+            <div class="benefit-icon">💸</div>
+            <div class="benefit-content">
+              <h3>Earn <span class="highlight">Realistic Income</span></h3>
+              <p>
+                Make ₹2000-₹3000 monthly as we grow our client base. Your
+                authentic feedback is valuable.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit animate-on-scroll" style="transition-delay: 0.1s">
+            <div class="benefit-icon">🕒</div>
+            <div class="benefit-content">
+              <h3><span class="highlight">Flexible</span> Time Commitment</h3>
+              <p>
+                Just 10-15 minutes per opportunity. Answer questions or record
+                short 1-2 minute videos.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit animate-on-scroll" style="transition-delay: 0.2s">
+            <div class="benefit-icon">🎯</div>
+            <div class="benefit-content">
+              <h3>
+                Your Voice <span class="highlight">Actually Matters</span>
+              </h3>
+              <p>
+                Companies pay to hear real feedback. Your honest opinions
+                directly influence product improvements.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit animate-on-scroll" style="transition-delay: 0.3s">
+            <div class="benefit-icon">🚀</div>
+            <div class="benefit-content">
+              <h3><span class="highlight">Early Adopter</span> Advantage</h3>
+              <p>
+                Join now while we're small and grow with us. Early members get
+                priority access as we expand.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="form-section animate-on-scroll"
+          id="signup-form-section"
+        >
+          <div class="startup-badge">Be a Founding Member!</div>
+          <h2>
+            Get Early Access & <span class="highlight">Start Earning</span>
+          </h2>
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+              />
+              <div class="form-icon">👤</div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Where we'll send opportunities"
+                required
+              />
+              <div class="form-icon">✉️</div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">WhatsApp Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="For quick notifications (10 digits)"
+                required
+                pattern="[6-9][0-9]{9}"
+                title="Please enter a valid 10-digit Indian mobile number"
+              />
+              <div class="form-icon">📱</div>
+            </div>
+
+            <button type="submit" class="pulse">
+              <span class="test-emoji">🚀</span> JOIN THE WAITLIST
+            </button>
+            <div class="trust-indicators">
+              <div class="trust-indicator"><span>🔒</span> 100% Secure</div>
+              <div class="trust-indicator"><span>⚡</span> 2-Min Signup</div>
+              <div class="trust-indicator"><span>🤝</span> No Commitments</div>
+            </div>
+            <div
+              id="form-message"
+              style="
+                margin-top: 20px;
+                text-align: center;
+                font-weight: 600;
+                min-height: 1.2em;
+                transition: opacity 0.3s ease;
+              "
+            ></div>
+          </form>
+        </section>
+      </div>
+      <section class="early-adopter animate-on-scroll">
+        <div class="honesty-badge">TRANSPARENCY MATTERS</div>
+        <h3 class="early-adopter-title">
+          Where We <span class="highlight">Actually Stand</span> Right Now
+        </h3>
+        <div class="early-adopter-content">
+          <p>
+            We're being 100% transparent: FeedbackPro just launched and you'll
+            be among our first members. We currently have
+            <span class="first-badge"
+              ><span id="waitlist-count">1</span> person on the waitlist</span
+            >
+            (the founder's brother!)
+          </p>
+          <p>
+            We're actively in discussions with 2-3 companies who need user
+            feedback. As we secure these partnerships, you'll be the first to
+            know and first to benefit. Your early support is what will help us
+            grow.
+          </p>
+        </div>
+      </section>
+
+      <section class="how-it-works animate-on-scroll">
+        <h2>The <span class="highlight">Honest Process</span></h2>
+        <div class="step-cards">
+          <div class="step-card animate-on-scroll">
+            <div class="step-number">1</div>
+            <div class="step-icon">📝</div>
+            <div class="step-title">Join & Wait (Yes, Really)</div>
+            <div class="step-description">
+              Sign up now and understand there may be a waiting period as we're
+              just starting. We'll be completely transparent about timelines as
+              we secure partnerships.
+            </div>
+          </div>
+
+          <div
+            class="step-card animate-on-scroll"
+            style="transition-delay: 0.1s"
+          >
+            <div class="step-number">2</div>
+            <div class="step-icon">📱</div>
+            <div class="step-title">Get First-Access Notifications</div>
+            <div class="step-description">
+              We'll notify you via email or WhatsApp when our first feedback
+              opportunities become available. Early members get priority access.
+            </div>
+          </div>
+
+          <div
+            class="step-card animate-on-scroll"
+            style="transition-delay: 0.2s"
+          >
+            <div class="step-number">3</div>
+            <div class="step-icon">🎬</div>
+            <div class="step-title">Share Authentic Feedback</div>
+            <div class="step-description">
+              Answer questions about products or record short 1-2 minute videos
+              sharing what you genuinely like and don't like. Honesty is what
+              companies pay for.
+            </div>
+          </div>
+
+          <div
+            class="step-card animate-on-scroll"
+            style="transition-delay: 0.3s"
+          >
+            <div class="step-number">4</div>
+            <div class="step-icon">💰</div>
+            <div class="step-title">Get Paid For Your Time</div>
+            <div class="step-description">
+              Receive payment via UPI, PayTM or bank transfer after your
+              feedback is approved. Your time and opinions are valuable - we
+              ensure you're compensated.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="money-section animate-on-scroll">
+        <div class="honesty-badge">REAL EARNING POTENTIAL</div>
+        <h3 class="money-title">
+          What You Can <span class="highlight">Actually Expect to Earn</span>
+        </h3>
+        <div class="money-cards">
+          <div class="money-card">
+            <div class="money-amount">₹50-₹150</div>
+            <div class="money-description">
+              Per feedback task (survey/video)
+            </div>
+          </div>
+          <div class="money-card">
+            <div class="money-amount">₹2000+</div>
+            <div class="money-description">
+              Potential monthly earnings (growing)
+            </div>
+          </div>
+          <div class="money-card">
+            <div class="money-amount">UPI/PayTM</div>
+            <div class="money-description">Fast & Easy Payouts</div>
+          </div>
+        </div>
+        <div class="money-note">
+          <strong>Note:</strong> These are initial estimates. As we partner with
+          more companies, the number of opportunities and earning potential will
+          increase. We are committed to fair compensation for your valuable time
+          and insights.
+        </div>
+      </section>
+
+      <section class="share-section animate-on-scroll">
+        <h3 class="share-title">
+          Help Us Grow & <span class="highlight">Earn More!</span>
+        </h3>
+        <p class="share-description">
+          Know friends who'd love to share opinions and earn? Sharing helps us
+          attract more companies, leading to more opportunities for everyone
+          (including you!).
+        </p>
+        <div class="share-buttons">
+          <button
+            class="share-button"
+            onclick="showShareMessage('Link copied (simulation)!')"
+          >
+            <span class="share-emoji">🔗</span> Copy Link
+          </button>
+          <button
+            class="share-button"
+            onclick="showShareMessage('WhatsApp sharing coming soon!')"
+          >
+            <span class="share-emoji">📱</span> Share on WhatsApp
+          </button>
+          <button
+            class="share-button"
+            onclick="showShareMessage('Facebook sharing coming soon!')"
+          >
+            <span class="share-emoji">👍</span> Share on Facebook
+          </button>
+        </div>
+        <div class="share-incentive">✨ Referral bonuses coming soon! ✨</div>
+        <div
+          id="share-message"
+          style="
+            margin-top: 15px;
+            font-weight: 500;
+            min-height: 1.2em;
+            transition: opacity 0.3s ease;
+          "
+        ></div>
+      </section>
+
+      <section class="faq animate-on-scroll">
+        <h2>
+          Frequently Asked <span class="highlight">Honest Questions</span>
+        </h2>
+        <div class="faq-items">
+          <div class="faq-item">
+            <div class="faq-question">❓ <span>Is this really free?</span></div>
+            <div class="faq-answer">
+              Yes, 100%. You will never be asked to pay anything. Companies pay
+              us for your feedback, and we pay you.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              ⏳ <span>How long until I get opportunities?</span>
+            </div>
+            <div class="faq-answer">
+              Since we just launched, it might take a few weeks as we finalize
+              partnerships. We promise to keep you updated via email/WhatsApp.
+              Early members get first priority.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              🇮🇳 <span>Is this only for India?</span>
+            </div>
+            <div class="faq-answer">
+              Currently, yes. We are focusing on the Indian market initially for
+              feedback and payments (UPI/PayTM). We may expand later.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              🔒 <span>What about my data privacy?</span>
+            </div>
+            <div class="faq-answer">
+              Your contact info is only for notifications and payments. Your
+              feedback is shared anonymously with companies unless you
+              explicitly agree otherwise for specific video testimonials.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              🗣️ <span>Do I have to show my face in videos?</span>
+            </div>
+            <div class="faq-answer">
+              Some opportunities might be video-based. We'll always specify if
+              showing your face is required or optional. Many tasks will be
+              simple surveys or screen recordings.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              🤔 <span>What kind of products will I review?</span>
+            </div>
+            <div class="faq-answer">
+              It will vary! We're talking to companies in tech (apps, websites),
+              consumer goods, services, and more. We'll try to match
+              opportunities to your interests where possible.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-us animate-on-scroll">
+        <h2>About <span class="highlight">FeedbackPro</span></h2>
+        <p>
+          FeedbackPro was born from a simple idea: valuable, honest feedback is
+          hard for companies to get, and people deserve to be paid fairly for
+          sharing it. We're cutting out the middlemen and creating a direct
+          connection.
+        </p>
+        <p>
+          We're a tiny, bootstrapped startup (literally just starting!) based in
+          India, passionate about helping both consumers and businesses.
+        </p>
+        <div class="founders-note">
+          <p>
+            "We believe authentic user voices can genuinely shape better
+            products. We're excited to build this community with you, focusing
+            on transparency and fair value exchange from day one." - The
+            (Future) FeedbackPro Team
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          &copy; <span id="current-year"></span> FeedbackPro. All Rights
+          Reserved. | Built with ❤️ in India.
+        </p>
+        <div class="footer-links">
+          <a
+            href="#"
+            class="footer-link"
+            onclick="event.preventDefault(); alert('Privacy Policy coming soon!');"
+            >Privacy Policy</a
+          >
+          <a
+            href="#"
+            class="footer-link"
+            onclick="event.preventDefault(); alert('Terms of Service coming soon!');"
+            >Terms of Service</a
+          >
+          <a href="mailto:hello@feedbackpro.example.com" class="footer-link"
+            >Contact Us</a
+          >
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
